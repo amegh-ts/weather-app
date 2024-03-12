@@ -11,7 +11,7 @@
 }
 
 body {
-
+color: var(--primary);
   font-family: Roboto;
   background: var(--background);
   /* overflow: hidden; */

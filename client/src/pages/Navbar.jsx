@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.scss'
-import { IoHome, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
+import { IoHome, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
 import Hero from './Hero';
 
 const Navbar = () => {
@@ -27,7 +27,7 @@ const Navbar = () => {
                         <img src="logo.png" alt="" />
                     </div>
                     <div className="middle">
-                        <span className='menu'>
+                        <span className={`menu ${activePage === 'hero' ? 'active' : ''}`} onClick={() => { setActivePage('hero'); }}>
                             <IoPartlySunny className="icon" />
                             <h4>Weather</h4>
                         </span>
@@ -47,7 +47,7 @@ const Navbar = () => {
 
                     <div className="bottom">
                         <span className='menu'>
-                            <IoHome className="icon" />
+                            <IoLogOut className="icon" />
                         </span>
                     </div>
                 </div>
