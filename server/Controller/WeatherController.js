@@ -6,9 +6,9 @@ const getWeather = async (req, res) => {
     try {
         const apiKey = process.env.OPEN_WEATHER_API_KEY;
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-        console.log(apiUrl);
+        // console.log(apiUrl);
         const response = await axios.get(apiUrl);
-        console.log(response.data);
+        // console.log(response.data);
         res.json({ weatherData: response.data });
     } catch (error) {
         console.log(error.message);
@@ -21,7 +21,7 @@ const getForecast = async (req, res) => {
     const { latitude, longitude } = req.body;
     try {
         const apiKey = process.env.OPEN_WEATHER_API_KEY;
-        const apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=40.712776&lon=-74.005974&appid=${apiKey}&units=metric`;
+        const apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
         console.log(apiUrl);
         const response = await axios.get(apiUrl);
         console.log(response.data);
@@ -32,4 +32,4 @@ const getForecast = async (req, res) => {
     }
 }
 
-module.exports = { getWeather }
+module.exports = { getWeather,getForecast }

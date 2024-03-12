@@ -33,16 +33,29 @@
         border-radius: 20px;
         width: 40%;
         padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
 
-        .container{
+        .container {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            background: red;
 
-            .row{
-                border-bottom: 1px solid var(--secondary);
-                padding: 10px;
+            .row {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                
+                span{
+                    display: flex;
+                    align-items: center;
+                    max-width: 200px;
+                    width: 100%;
+                    img{
+                        width: 100px;
+                    }
+                }
             }
         }
     }
