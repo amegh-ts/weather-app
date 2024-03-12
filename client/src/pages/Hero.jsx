@@ -2,10 +2,10 @@ import React from 'react'
 import './Hero.scss'
 
 const Hero = ({ weather }) => {
-  const icon = weather?.weatherData?.current?.weather[0]?.icon;
-  const temp = Math.floor(weather?.weatherData?.current?.temp);
-  const feels = Math.floor(weather?.weatherData?.current?.feels_like);
-  
+  const icon = weather?.weatherData?.weather[0]?.icon;
+  const temp = Math.floor(weather?.weatherData?.main?.temp);
+  const feels = Math.floor(weather?.weatherData?.main?.feels_like);
+  console.log(weather);
   
 
 

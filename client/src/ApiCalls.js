@@ -4,7 +4,7 @@ export const weatherData = async (data) => {
     console.log('coordinates',data); 
 
     try {
-       const res=await publicRequest.get('/fetchweather',data)
+       const res=await publicRequest.post('/fetchweather',data)
        console.log('Response Status:', res.status);
        return res.data;
 
