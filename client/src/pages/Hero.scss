@@ -1,0 +1,32 @@
+.Hero{
+    .top{
+        display: flex;
+        gap: 10px;
+        .left{
+            background: var(--transparent);
+            border-radius: 10px;
+            height: 600px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .temp{
+                display: flex;
+                align-items: center;
+
+                h1{
+                    font-size: 4rem;
+                }
+            }
+        }
+
+        .right{
+            background: var(--transparent);
+            border-radius: 10px;
+            height: 600px;
+            width: 100%;
+        }
+    }
+}

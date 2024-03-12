@@ -1,0 +1,18 @@
+:root {
+  --primary: #dde0e4ff;
+  --lite:#9399a2ff;
+  --secondary:rgb(32, 43, 59);
+  --background: rgb(11, 19, 30);
+
+  --tran-03: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.3s ease;
+  --tran-05: all 0.3s ease;
+}
+
+body {
+
+  font-family: Roboto;
+  background: var(--background);
+  /* overflow: hidden; */
+}
