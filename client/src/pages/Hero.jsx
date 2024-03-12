@@ -1,17 +1,25 @@
 import React from 'react'
 import './Hero.scss'
-import { cityName, feelsLike, temperature, weatherIcon } from '../data/WeatherUtils';
+import { airHumidity, airPressure, cityName, feelsLike, maxTemp, maxVisibility, minTemp, temperature, weatherIcon, windSpeed } from '../data/WeatherUtils';
+import { FaDroplet, FaGauge, FaWind, FaTemperatureArrowUp, FaTemperatureArrowDown } from "react-icons/fa6";
+import Today from '../components/Today';
+import Weekly from '../components/Weekly';
 
 const Hero = ({ weather, forecast }) => {
   const icon = weatherIcon(weather);
   const temp = temperature(weather);
   const feels = feelsLike(weather);
   const city = cityName(forecast)
-
+  const humidity = airHumidity(weather)
+  const pressure = airPressure(weather)
+  const wind = windSpeed(weather)
+  const max = maxTemp(weather)
+  const min = minTemp(weather)
+  const visibility = maxVisibility(weather)
 
   const list = forecast?.weatherData?.list;
 
-  console.log('list', list);
+  console.log('weather', weather);
 
   const firstSix = list?.slice(0, 6);
 
@@ -63,20 +71,75 @@ const Hero = ({ weather, forecast }) => {
           <h4>TODAY'S FORECAST</h4>
           <div className="container">
             {firstSix?.map((day, index) => (
-            <div className="column" key={index}>
-              <span>{new Date(day.dt * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })}</span>
-              <span>
-                <img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`} alt="Weather Icon" />
-                {day.weather[0].description}
-              </span>
-            </div>
-          ))}
+              <Today key={index} day={day}/>
+            ))}
           </div>
         </div>
 
         <div className="bottom">
-        <h4>AIR CONDITION</h4>
+          <h4>AIR CONDITION</h4>
+          <div className="container">
+            <div className="row">
+              <div className="column">
+                <div className='card'>
+                  <span>
+                    <FaDroplet className='icon' />
+                    <h3>Humidity</h3>
+                  </span>
+                  <h1>{humidity}%</h1>
+                </div>
+                <div className='card'>
+                  <span>
+                    <FaGauge className='icon' />
+                    <h3>Pressure</h3>
+                  </span>
+                  <h1>{pressure} hPa</h1>
+                </div>
+              </div>
 
+              <div className="column">
+                <div className='card'>
+                  <span>
+                    <FaWind className='icon' />
+                    <h3>Wind</h3>
+                  </span>
+                  <h1>{wind} m/s</h1>
+                </div>
+                <div className='card'>
+                  <span>
+                    <FaTemperatureArrowUp className='icon' />
+                    <h3>Max.Temp</h3>
+                  </span>
+                  <h1>{max}°</h1>
+                </div>
+              </div>
+                
+
+              <div className="column">
+                <div className='card'>
+                  <span>
+                    <FaTemperatureArrowDown className='icon' />
+                    <h3>Visibility</h3>
+                  </span>
+                  <h1>{visibility} m</h1>
+                </div>
+                <div className='card'>
+                  <span>
+                    <FaTemperatureArrowDown className='icon' />
+                    <h3>Min.Temp</h3>
+                  </span>
+                  <h1>{min}°</h1>
+                </div>
+              </div>
+
+
+
+
+
+
+
+            </div>
+          </div>
         </div>
       </div>
 
@@ -84,13 +147,7 @@ const Hero = ({ weather, forecast }) => {
         <h3>6 day forecast for {city}</h3>
         <div className="container">
           {firstWeatherReadings?.map((day, index) => (
-            <div className="row" key={index}>
-              <span>{new Date(day.dt * 1000).toLocaleDateString()}</span>
-              <span>
-                <img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`} alt="Weather Icon" />
-                {day.weather[0].description}
-              </span>
-            </div>
+            <Weekly key={index} day={day}/>
           ))}
 
         </div>

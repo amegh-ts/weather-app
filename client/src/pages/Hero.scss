@@ -25,26 +25,32 @@
             }
         }
 
-        .middle{
+        .middle,
+        .bottom {
             margin-top: 10px;
-            padding: 20px ;
+            padding: 20px;
             color: var(--lite);
             background: var(--secondary);
             border-radius: 20px;
 
-            .container{
+            .container {
                 margin-top: 10px;
                 display: flex;
+            }
+        }
+
+        .middle {
+            .container {
                 gap: 20px;
                 justify-content: space-evenly;
 
-                .column{
+                .column {
                     display: flex;
                     flex-direction: column;
                     padding: 10px;
                     align-items: center;
 
-                    span{
+                    span {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -54,11 +60,42 @@
             }
         }
 
-        .bottom{
-            margin-top: 10px;
-            padding: 20px 0 20px 20px;
-            color: var(--lite);
+        .bottom {
+            .container {
+                padding: 10px;
+                flex-direction: column;
 
+                .row {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .column {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 45px;
+
+                        .card {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 14px;
+
+                            span {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                font-size: 20px;
+                            }
+
+                            h1 {
+                                font-size: 40px;
+                            }
+                        }
+                    }
+
+
+                }
+            }
         }
     }
 
@@ -84,16 +121,17 @@
                 cursor: pointer;
                 transition: all .3s;
 
-                &:hover{
+                &:hover {
                     background: var(--lite);
                 }
-                
-                span{
+
+                span {
                     display: flex;
                     align-items: center;
                     max-width: 200px;
                     width: 100%;
-                    img{
+
+                    img {
                         width: 100px;
                     }
                 }
