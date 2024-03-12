@@ -46,6 +46,13 @@
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
+                border-radius: 20px;
+                cursor: pointer;
+                transition: all .3s;
+
+                &:hover{
+                    background: var(--lite);
+                }
                 
                 span{
                     display: flex;
