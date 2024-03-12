@@ -1,12 +1,16 @@
 import { publicRequest } from "./RequestMethods";
 
 export const weatherData = async (data) => {
+    console.log('coordinates',data); 
+
     try {
-       console.log('coordinates',data); 
-       const res=await publicRequest.post('/fetchweather',data)
+       const res=await publicRequest.get('/fetchweather',data)
        console.log('Response Status:', res.status);
        return res.data;
+
     } catch (error) {
         console.log(error);
+    //    console.log(error.response.data);
+
     }
 }

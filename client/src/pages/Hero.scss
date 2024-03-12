@@ -1,40 +1,45 @@
 .Hero {
+    padding-right: 40px;
     margin-left: 40px;
     display: flex;
     gap: 20px;
+    justify-content: space-between;
 
     .left {
+        width: 60%;
+
         .top {
-            background: red;
+            padding: 20px 0 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            height: 200px;
 
-            .left {
-                background: var(--transparent);
-                border-radius: 10px;
+            .current-wether {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
 
-
-                .temp {
-                    display: flex;
-                    align-items: center;
-
-                    h1 {
-                        font-size: 4rem;
-                    }
+                h1 {
+                    font-size: 6rem;
                 }
-
             }
 
-            .right {
-                background: var(--transparent);
-                border-radius: 10px;
-                height: 600px;
-                width: 100%;
-            }
+            .wether-icon {}
         }
     }
 
     .right {
         background: var(--secondary);
-        // width: 100px;
-        padding: 20px;
+        border-radius: 20px;
+        width: 40%;
+        padding: 30px;
+
+        .container{
+            background: red;
+
+            .row{
+                border-bottom: 1px solid var(--secondary);
+            }
+        }
     }
 }

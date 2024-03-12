@@ -40,10 +40,10 @@ console.log('nav',weather);
                             <IoSettings className="icon" />
                             <h4>Settings</h4>
                         </span>
-                        <span className='menu'>
+                        {/* <span className='menu'>
                             <IoHome className="icon" />
                             <h4>Home</h4>
-                        </span>
+                        </span> */}
                     </div>
 
                     <div className="bottom">
