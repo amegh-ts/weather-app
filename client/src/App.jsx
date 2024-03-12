@@ -1,6 +1,5 @@
 import './App.css'
 import Navbar from './pages/Navbar'
-import Hero from './pages/Hero'
 import { useEffect, useState } from 'react';
 import { weatherData } from './ApiCalls';
 
@@ -9,6 +8,7 @@ function App() {
   const [longitude, setLongitude] = useState(null);
   const [error, setError] = useState(null);
   const [weather,setWeather]=useState(null)
+
 
   useEffect(() => {
     const successHandler = (position) => {
@@ -34,6 +34,7 @@ function App() {
   }, [latitude, longitude]);
 
 console.log(weather);
+
   return (
     <>
       <Navbar weather={weather}/>

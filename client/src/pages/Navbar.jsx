@@ -3,20 +3,21 @@ import './Navbar.scss'
 import { IoHome, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
 import Hero from './Hero';
 
-const Navbar = () => {
+const Navbar = ({weather}) => {
+console.log('nav',weather);
+
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
         return sessionStorage.getItem('activePage') || 'hero';
     });
 
     useEffect(() => {
-        // Save the active page to sessionStorage whenever it changes
         sessionStorage.setItem('activePage', activePage);
     }, [activePage]);
 
 
     const pageComponents = {
-        hero: <Hero />,
+        hero: <Hero weather={weather}/>,
     };
 
     return (

@@ -1,33 +1,40 @@
-.Hero{
-    .top{
-        display: flex;
-        gap: 10px;
-        .left{
-            background: var(--transparent);
-            border-radius: 10px;
-            height: 600px;
-            width: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+.Hero {
+    margin-left: 40px;
+    display: flex;
+    gap: 20px;
 
-            .temp{
-                display: flex;
-                align-items: center;
+    .left {
+        .top {
+            background: red;
 
-                h1{
-                    font-size: 4rem;
+            .left {
+                background: var(--transparent);
+                border-radius: 10px;
+
+
+                .temp {
+                    display: flex;
+                    align-items: center;
+
+                    h1 {
+                        font-size: 4rem;
+                    }
                 }
-            }
-            
-        }
 
-        .right{
-            background: var(--transparent);
-            border-radius: 10px;
-            height: 600px;
-            width: 100%;
+            }
+
+            .right {
+                background: var(--transparent);
+                border-radius: 10px;
+                height: 600px;
+                width: 100%;
+            }
         }
+    }
+
+    .right {
+        background: var(--secondary);
+        // width: 100px;
+        padding: 20px;
     }
 }

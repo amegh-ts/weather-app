@@ -1,6 +1,6 @@
 .Sidebar {
     height: 100lvh;
-    max-width: 90px;
+    max-width: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,6 +145,7 @@
 
 @media (max-width: 768px) {
     .Sidebar {
+        
         max-width: 90px;
         padding: 0px;
 

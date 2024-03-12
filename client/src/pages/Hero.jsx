@@ -8,16 +8,20 @@ const Hero = ({ weather }) => {
 
   return (
     <div className='Hero'>
-      <div className="top">
-        <div className="left">
-          <h2>My Location</h2>
-          <div className="temp">
-            <img src={`https://openweathermap.org/img/wn/${icon}@4x.png`} alt="Weather Icon" />
+      <div className="left">
+        <div className="top">
+
+          {/* <img src={`https://openweathermap.org/img/wn/${icon}@4x.png`} alt="Weather Icon" /> */}
+          <div className="left">
+
             <h1>{temp}°</h1>
           </div>
-          <h4>feels like</h4>
+          <div className="right"></div>
         </div>
-        <div className="right"></div>
+      </div>
+
+      <div className="right">
+        <h1>7 day forecast</h1>
       </div>
     </div>
   )
