@@ -9,6 +9,15 @@ const SignIn = () => {
     const [password, setPassword] = useState('')
     const dispatch = useDispatch();
 
+    const onSignInClick = async (e) => {
+        e.preventDefault();
+        try {
+          signInData({ email, password }, dispatch)
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
     return (
         <div className='SignIn'>
             <div className="container">
@@ -19,15 +28,15 @@ const SignIn = () => {
                 <div className="middle">
                     <span>
                         <IoMailOpenOutline className='icon' />
-                        <input type="mail" placeholder='Email' />
+                        <input type="mail" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </span>
                     <span>
                         <IoLockClosedOutline className='icon' />
-                        <input type="password" placeholder='Password' />
+                        <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </span>
                 </div>
                 <div className="bottom">
-                    <button>SIGN IN</button>
+                    <button onClick={onSignInClick}>SIGN IN</button>
                 </div>
                 <div className='prompt'>
                     <p>Don't have an account <Link to={'/signup'}><span>Sign Up</span></Link></p>
