@@ -2,6 +2,7 @@ import './App.css'
 import Navbar from './pages/Navbar'
 import { useEffect, useState } from 'react';
 import { forecastData, weatherData } from './ApiCalls';
+import Login from './pages/Login';
 
 function App() {
   const [latitude, setLatitude] = useState(null);
@@ -40,7 +41,8 @@ function App() {
 
   return (
     <>
-      <Navbar weather={weather} forecast={forecast} />
+      {/* <Navbar weather={weather} forecast={forecast} /> */}
+      <Login/>
     </>
   )
 }

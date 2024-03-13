@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 const Login = () => {
     const [isRegisterActive, setRegisterActive] = useState(false);
@@ -11,11 +11,11 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const onSignUpClick = async () => {
         try {
-            signUpData({ uname, dob, phone, email, password });
+            // signUpData({ uname, dob, phone, email, password });
             alert("Successfully registered");
             window.location.reload();
         } catch (error) {
@@ -25,11 +25,11 @@ const Login = () => {
 
 
     const onSignInClick = async () => {
-        try {
-            signInData({ email, password }, dispatch)
-        } catch (error) {
-            console.log(error);
-        }
+        // try {
+        //     signInData({ email, password }, dispatch)
+        // } catch (error) {
+        //     console.log(error);
+        // }
     }
 
 
