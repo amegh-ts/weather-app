@@ -8,6 +8,7 @@ import SignUp from './pages/SignUp';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from './Redux/UserRedux';
 import LogedIn from './pages/LogedIn';
+import Profile from './pages/Profile';
 
 function App() {
   const [latitude, setLatitude] = useState(null);
@@ -91,6 +92,9 @@ function App() {
     },{
       path: '/logedin',
       element: <LogedIn />,
+    },{
+      path: '/profile',
+      element: <Profile />,
     },
   ]);
 
