@@ -5,7 +5,7 @@ const Weekly = ({day}) => {
         <div className="row" >
             <span>{new Date(day.dt * 1000).toLocaleDateString()}</span>
             <span>
-                <img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`} alt="Weather Icon" />
+                <img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png`} alt="Weather Icon" />
                 {day.weather[0].main}
             </span>
         </div>)
