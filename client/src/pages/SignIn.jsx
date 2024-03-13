@@ -3,6 +3,8 @@ import './SignIn.scss'
 import { Link } from 'react-router-dom'
 import { IoMailOpenOutline, IoLockClosedOutline } from "react-icons/io5";
 
+// const dispatch = useDispatch();
+
 const SignIn = () => {
     return (
         <div className='SignIn'>
