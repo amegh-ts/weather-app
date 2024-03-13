@@ -1,8 +1,10 @@
 import './App.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Navbar from './pages/Navbar'
 import { useEffect, useState } from 'react';
 import { forecastData, weatherData } from './ApiCalls';
-import Login from './pages/Login';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 function App() {
   const [latitude, setLatitude] = useState(null);
@@ -39,10 +41,22 @@ function App() {
     }
   }, [latitude, longitude]);
 
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Navbar weather={weather} forecast={forecast} />,
+    }, {
+      path: '/signup',
+      element: <SignUp />,
+    }, {
+      path: '/signin',
+      element: <SignIn />,
+    },
+  ]);
+
   return (
     <>
-      {/* <Navbar weather={weather} forecast={forecast} /> */}
-      <Login/>
+      <RouterProvider router={router}></RouterProvider>
     </>
   )
 }
