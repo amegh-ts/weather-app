@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SignIn.scss'
+import { Link, useNavigate } from 'react-router-dom'
 import { IoMailOpenOutline, IoLockClosedOutline } from "react-icons/io5";
+import { useDispatch } from 'react-redux';
+import { signInData } from '../ApiCalls';
 
 const SignIn = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const dispatch = useDispatch();
+    const navigate=useNavigate()
+
+    const onSignInClick = async (e) => {
+        try {
+          signInData({ email, password }, dispatch)
+          navigate('/')
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
     return (
         <div className='SignIn'>
             <div className="container">
@@ -13,15 +30,18 @@ const SignIn = () => {
                 <div className="middle">
                     <span>
                         <IoMailOpenOutline className='icon' />
-                        <input type="mail" placeholder='Email' />
+                        <input type="mail" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </span>
                     <span>
                         <IoLockClosedOutline className='icon' />
-                        <input type="password" placeholder='Password' />
+                        <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </span>
                 </div>
                 <div className="bottom">
-                    <button>SIGN IN</button>
+                    <button onClick={onSignInClick}>SIGN IN</button>
+                </div>
+                <div className='prompt'>
+                    <p>Don't have an account <Link to={'/signup'}><span>Sign Up</span></Link></p>
                 </div>
             </div>
         </div>
