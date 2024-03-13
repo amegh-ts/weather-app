@@ -1,96 +1,7 @@
-.Sidebar {
-    height: 100lvh;
-    max-width: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 6px;
-
-
-    .container {
-        background: var(--secondary);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: 20px;
-        padding: 10px;
-        height: 90%;
-        position: relative;
-
-        .top {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            img {
-                width: 60px;
-                height: 60px;
-            }
-        }
-
-        .middle {
-            margin-top: 60px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            .menu {
-                display: flex;
-                gap: 10px;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                color: var(--lite);
-                padding: 8px;
-                border-radius: 12px;
-                cursor: pointer;
-                transition: all .3s;
-
-                .icon {
-                    font-size: 26px;
-                }
-
-                &:hover {
-                    color: var(--primary);
-                }
-            }
-        }
-
-        .bottom {
-            position: absolute;
-            bottom: 30px;
-            display: flex;
-            
-            .menu {
-                display: flex;
-                align-items: center;
-                color: var(--lite);
-                padding: 8px;
-                border-radius: 12px;
-                cursor: pointer;
-
-                .icon {
-                    font-size: 36px;
-                    display: flex;
-                }
-
-
-                &:hover {
-                    color: var(--primary);
-                }
-            }
-        }
-    }
-
-
-}
-
 .Body {
     position: absolute;
     top: 12px;
-    left: 100px;
+    left: 60px;
     height: 100lvh;
     width: calc(100% - 120px);
     transition: var(--tran-05);
@@ -133,15 +44,18 @@
         }
 
         .right {
-            .likes{
-                display: none;
-            }
             span {
                 display: flex;
                 background: var(--secondary);
+                align-items: center;
                 padding: 15px;
-                border-radius: 50%;
+                gap: 10px;
+                border-radius: 20px;
                 color: var(--primary);
+
+                .icon{
+                    font-size: 22px;
+                }
             }
         }
     }
@@ -165,11 +79,16 @@
             }
             .right{
                 display: flex;
-                .likes{
-                    display: inherit;
-                }
                 span{
                     margin-right: 10px;
+                    // padding: 10px;
+                    border-radius: 50%;
+                    .icon{
+                        font-size: 28px;
+                    }
+                    p{
+                        display: none;
+                    }
                 }
             }
         }

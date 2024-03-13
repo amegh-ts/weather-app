@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './SignIn.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IoMailOpenOutline, IoLockClosedOutline } from "react-icons/io5";
 import { useDispatch } from 'react-redux';
 import { signInData } from '../ApiCalls';
@@ -9,11 +9,12 @@ const SignIn = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch();
+    const navigate=useNavigate()
 
     const onSignInClick = async (e) => {
-        e.preventDefault();
         try {
           signInData({ email, password }, dispatch)
+          navigate('/')
         } catch (error) {
           console.log(error);
         }
