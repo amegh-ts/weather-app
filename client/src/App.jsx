@@ -18,11 +18,11 @@ function App() {
     const successHandler = (position) => {
       setLatitude(position.coords.latitude);
       setLongitude(position.coords.longitude);
-      setError(null);
     };
 
     const errorHandler = (error) => {
       setError(error.message);
+      
     };
 
     navigator.geolocation.getCurrentPosition(successHandler, errorHandler);

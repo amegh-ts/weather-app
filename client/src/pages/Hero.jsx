@@ -19,12 +19,7 @@ const Hero = ({ weather, forecast }) => {
   const description=weatherDesc(weather)
 
   const list = forecast?.weatherData?.list;
-
-  console.log('weather', weather);
-
   const firstSix = list?.slice(0, 6);
-
-  console.log('list', firstSix);
 
   // Function to extract the first reading of weather from each day
   function getFirstWeatherReadingPerDay(list) {
@@ -35,19 +30,15 @@ const Hero = ({ weather, forecast }) => {
       // Convert Unix timestamp to day
       const date = new Date(data.dt * 1000);
       const day = date.toDateString();
-
       // If day not in weatherByDay, add it with the weather reading
       if (!weatherByDay[day]) {
         weatherByDay[day] = data;
       }
     });
-
     // Convert weatherByDay object to array
     const firstWeatherReadings = Object.values(weatherByDay);
-
     return firstWeatherReadings;
   }
-
   // Get first weather reading from each day
   const firstWeatherReadings = getFirstWeatherReadingPerDay(list);
 

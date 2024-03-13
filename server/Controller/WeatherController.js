@@ -22,9 +22,7 @@ const getForecast = async (req, res) => {
     try {
         const apiKey = process.env.OPEN_WEATHER_API_KEY;
         const apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-        console.log(apiUrl);
         const response = await axios.get(apiUrl);
-        console.log(response.data);
         res.json({ weatherData: response.data });
     } catch (error) {
         console.log(error.message);
