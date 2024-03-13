@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.scss'
-import { IoHome, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
+import { IoHeart, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
 import Hero from './Hero';
 
-const Navbar = () => {
+const Navbar = ({weather,forecast}) => {
+// console.log('nav',weather);
+
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
         return sessionStorage.getItem('activePage') || 'hero';
     });
 
     useEffect(() => {
-        // Save the active page to sessionStorage whenever it changes
         sessionStorage.setItem('activePage', activePage);
     }, [activePage]);
 
 
     const pageComponents = {
-        hero: <Hero />,
+        hero: <Hero weather={weather} forecast={forecast} />,
     };
 
     return (
@@ -39,10 +40,10 @@ const Navbar = () => {
                             <IoSettings className="icon" />
                             <h4>Settings</h4>
                         </span>
-                        <span className='menu'>
+                        {/* <span className='menu'>
                             <IoHome className="icon" />
                             <h4>Home</h4>
-                        </span>
+                        </span> */}
                     </div>
 
                     <div className="bottom">
@@ -64,7 +65,10 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="right">
-                        <span>
+                        <span className='likes'>
+                            <IoHeart className="icon" />
+                        </span>
+                        <span >
                             <IoPersonSharp className="icon" />
                         </span>
                     </div>

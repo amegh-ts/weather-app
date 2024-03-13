@@ -1,33 +1,195 @@
-.Hero{
-    .top{
-        display: flex;
-        gap: 10px;
-        .left{
-            background: var(--transparent);
-            border-radius: 10px;
-            height: 600px;
-            width: 500px;
+.Hero {
+    padding-right: 40px;
+    margin-left: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+
+    .left {
+        width: 60%;
+
+        .top {
+            padding: 20px 0 20px 20px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
+            height: 200px;
 
-            .temp{
+            .current-wether {
                 display: flex;
-                align-items: center;
+                flex-direction: column;
+                justify-content: space-between;
 
-                h1{
-                    font-size: 4rem;
+                h1 {
+                    font-size: 6rem;
                 }
             }
-            
+        }
+
+        .middle,
+        .bottom {
+            margin-top: 10px;
+            padding: 20px;
+            color: var(--lite);
+            background: var(--secondary);
+            border-radius: 20px;
+
+            .container {
+                margin-top: 10px;
+                display: flex;
+            }
+        }
+
+        .middle {
+            .container {
+                gap: 20px;
+                justify-content: space-evenly;
+
+                .column {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px;
+                    align-items: center;
+
+                    span {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        // justify-content: center;
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            .container {
+                padding: 10px;
+                flex-direction: column;
+
+                .row {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .column {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 45px;
+
+                        .card {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 14px;
+
+                            span {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                font-size: 20px;
+                            }
+
+                            h1 {
+                                font-size: 40px;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    .right {
+        background: var(--secondary);
+        border-radius: 20px;
+        width: 40%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .row {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                border-radius: 20px;
+                cursor: pointer;
+                transition: all .3s;
+
+                &:hover {
+                    background: var(--lite);
+                }
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    max-width: 200px;
+                    width: 100%;
+
+                    img {
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .Hero {
+        flex-direction: column;
+
+        .left {
+            .middle {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 280px;
+
+                .container {
+                    flex-direction: column;
+                }
+            }
+
+            .bottom {
+                width: 280px;
+
+                .container {
+                    .row {
+                        flex-direction: column;
+                        gap: 45px;
+
+                        .column {
+                            flex-direction: row !important;
+                            justify-content: center;
+                            gap: 20px !important;
+
+                            .card {
+                                justify-content: left;
+                                padding: 2px;
+
+                                span {
+                                    font-size: 16px !important;
+                                }
+
+                                h1 {
+                                    font-size: 26px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .right{
-            background: var(--transparent);
-            border-radius: 10px;
-            height: 600px;
-            width: 100%;
+            width: 260px;
         }
     }
 }

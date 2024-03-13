@@ -1,6 +1,6 @@
 .Sidebar {
     height: 100lvh;
-    max-width: 90px;
+    max-width: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,6 +46,7 @@
                 padding: 8px;
                 border-radius: 12px;
                 cursor: pointer;
+                transition: all .3s;
 
                 .icon {
                     font-size: 26px;
@@ -132,6 +133,9 @@
         }
 
         .right {
+            .likes{
+                display: none;
+            }
             span {
                 display: flex;
                 background: var(--secondary);
@@ -145,33 +149,27 @@
 
 @media (max-width: 768px) {
     .Sidebar {
-        max-width: 90px;
-        padding: 0px;
-
-        .container {
-            padding: 5px;
-
-            .middle,.bottom{
-                .menu{
-                    font-size: 14px;
-
-                    .icon {
-                        font-size: 20px;
-                    }
-                }
-            }
-        }
+        display: none;        
     }
 
     .Body {
-        left: 80px;
-
+        left: 0;
+        width: 100%;
         .Navbar {
-            padding: 0px;
+            padding: 0px 10px;
 
             .left {
                 .title {
                     font-size: 14px;
+                }
+            }
+            .right{
+                display: flex;
+                .likes{
+                    display: inherit;
+                }
+                span{
+                    margin-right: 10px;
                 }
             }
         }
