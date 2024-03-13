@@ -2,10 +2,13 @@ import React from 'react'
 import './SignIn.scss'
 import { Link } from 'react-router-dom'
 import { IoMailOpenOutline, IoLockClosedOutline } from "react-icons/io5";
-
-// const dispatch = useDispatch();
+import { useDispatch } from 'react-redux';
 
 const SignIn = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const dispatch = useDispatch();
+
     return (
         <div className='SignIn'>
             <div className="container">
