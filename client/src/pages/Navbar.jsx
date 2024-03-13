@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.scss'
-import { IoHome, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
+import { IoHeart, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
 import Hero from './Hero';
 
 const Navbar = ({weather,forecast}) => {
@@ -65,7 +65,10 @@ const Navbar = ({weather,forecast}) => {
                         </div>
                     </div>
                     <div className="right">
-                        <span>
+                        <span className='likes'>
+                            <IoHeart className="icon" />
+                        </span>
+                        <span >
                             <IoPersonSharp className="icon" />
                         </span>
                     </div>

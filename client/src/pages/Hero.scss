@@ -139,3 +139,57 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .Hero {
+        flex-direction: column;
+
+        .left {
+            .middle {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 280px;
+
+                .container {
+                    flex-direction: column;
+                }
+            }
+
+            .bottom {
+                width: 280px;
+
+                .container {
+                    .row {
+                        flex-direction: column;
+                        gap: 45px;
+
+                        .column {
+                            flex-direction: row !important;
+                            justify-content: center;
+                            gap: 20px !important;
+
+                            .card {
+                                justify-content: left;
+                                padding: 2px;
+
+                                span {
+                                    font-size: 16px !important;
+                                }
+
+                                h1 {
+                                    font-size: 26px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .right{
+            width: 260px;
+        }
+    }
+}

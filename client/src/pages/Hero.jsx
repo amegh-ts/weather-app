@@ -1,6 +1,6 @@
 import React from 'react'
 import './Hero.scss'
-import { airHumidity, airPressure, cityName, feelsLike, maxTemp, maxVisibility, minTemp, temperature, weatherIcon, windSpeed } from '../data/WeatherUtils';
+import { airHumidity, airPressure, cityName, feelsLike, maxTemp, maxVisibility, minTemp, temperature, weatherDesc, weatherIcon, windSpeed } from '../data/WeatherUtils';
 import { FaDroplet, FaGauge, FaWind, FaTemperatureArrowUp, FaTemperatureArrowDown } from "react-icons/fa6";
 import Today from '../components/Today';
 import Weekly from '../components/Weekly';
@@ -16,6 +16,7 @@ const Hero = ({ weather, forecast }) => {
   const max = maxTemp(weather)
   const min = minTemp(weather)
   const visibility = maxVisibility(weather)
+  const description=weatherDesc(weather)
 
   const list = forecast?.weatherData?.list;
 
@@ -50,7 +51,6 @@ const Hero = ({ weather, forecast }) => {
   // Get first weather reading from each day
   const firstWeatherReadings = getFirstWeatherReadingPerDay(list);
 
-
   return (
     <div className='Hero'>
       <div className="left">
@@ -60,6 +60,7 @@ const Hero = ({ weather, forecast }) => {
             <span>
               <h1>{temp}°</h1>
               <h3>Feels like {feels}°</h3>
+              <h5>{description}</h5>
             </span>
           </div>
           <div className="wether-icon">
@@ -131,25 +132,16 @@ const Hero = ({ weather, forecast }) => {
                   <h1>{min}°</h1>
                 </div>
               </div>
-
-
-
-
-
-
-
             </div>
           </div>
         </div>
       </div>
-
       <div className="right">
         <h3>6 day forecast for {city}</h3>
         <div className="container">
           {firstWeatherReadings?.map((day, index) => (
             <Weekly key={index} day={day}/>
           ))}
-
         </div>
       </div>
     </div>
