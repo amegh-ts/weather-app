@@ -11,6 +11,19 @@ export const signUpData = async (data) => {
     }
 }
 
+// signin
+export const signInData = async (loginData, dispatch) => {
+    try {
+        const res = await publicRequest.post('/signin', loginData)
+        console.log('Response Status:', res.status);
+        const { _id: id, accessToken, type, state } = res.data;
+        const userData = { id, accessToken, type, state };
+        dispatch(loginUser(userData))
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // current weather
 export const weatherData = async (data) => {
     try {
