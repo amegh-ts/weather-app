@@ -23,5 +23,28 @@ const signUp=async (req, res) => {
     }
 }
 
+// signin
+const signIn = async (req, res) => {
+    try {
+        const DB = await userController.findOne({ email: req.body.email });
+        !DB && res.status(401).json({ response: 'Please check Your Email' });
+
+        const updatedata = await userController.findById(DB._id)
+        const hashedPassword = Crypto.AES.decrypt(DB.password, process.env.Crypto_js);
+        const originalPassword = hashedPassword.toString(Crypto.enc.Utf8);
+        originalPassword !== req.body.password && res.status(401).json({ response: "Password and Email don't match" });
+
+        await userController.findByIdAndUpdate(DB._id, { $set: { lastLogin: Date.now() } });
+
+        const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '1d' });
+        const { password, ...others } = updatedata._doc;
+        console.log('200 Successful');
+        res.status(200).json({ ...others, accessToken });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+};
+
+
 
 module.exports={signUp};
