@@ -3,6 +3,7 @@ import './SignIn.scss'
 import { Link } from 'react-router-dom'
 import { IoMailOpenOutline, IoLockClosedOutline } from "react-icons/io5";
 import { useDispatch } from 'react-redux';
+import { signInData } from '../ApiCalls';
 
 const SignIn = () => {
     const [email, setEmail] = useState('')
