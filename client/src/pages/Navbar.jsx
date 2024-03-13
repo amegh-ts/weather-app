@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.scss'
-import { IoHeart, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
+import { IoHeart, IoSearch, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
 import Hero from './Hero';
 
-const Navbar = ({weather,forecast}) => {
-// console.log('nav',weather);
+const Navbar = ({ weather, forecast }) => {
+    // console.log('nav',weather);
 
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
@@ -59,9 +59,9 @@ const Navbar = ({weather,forecast}) => {
                 <div className="Navbar">
                     <div className="left">
                         <div className="title">
-                            <h1>Weather App</h1>
-                            {/* <IoSearch className="icon" /> */}
-                            {/* <input type="text" placeholder="Search jobs, freelancers..." /> */}
+                            {/* <h1>Weather App</h1> */}
+                            <IoSearch className="icon" />
+                            <input type="text" placeholder="Search Cities or Places..." />
                         </div>
                     </div>
                     <div className="right">

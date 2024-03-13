@@ -1,5 +1,6 @@
 import React from 'react'
 import './SignIn.scss'
+import { Link } from 'react-router-dom'
 import { IoMailOpenOutline, IoLockClosedOutline } from "react-icons/io5";
 
 const SignIn = () => {
@@ -22,6 +23,9 @@ const SignIn = () => {
                 </div>
                 <div className="bottom">
                     <button>SIGN IN</button>
+                </div>
+                <div className='prompt'>
+                    <p>Don't have an account <Link to={'/signup'}><span>Sign Up</span></Link></p>
                 </div>
             </div>
         </div>
