@@ -68,12 +68,12 @@ export const forecastData = async (data) => {
 // search weather
 export const searchWeatherData = async (data) => {
     console.log('api data',data);
-    // try {
-    //     const res = await userRequest.post('/searchweather', data)
-    //     console.log('Response Status:', res.status);
-    //     return res.data;
-    // } catch (error) {
-    //     console.log(error);
-    //     //    console.log(error.response.data);
-    // }
+    try {
+        const res = await userRequest.post('/searchweather', data)
+        console.log('Response Status:', res.status);
+        return res.data;
+    } catch (error) {
+        console.log(error);
+        //    console.log(error.response.data);
+    }
 }
