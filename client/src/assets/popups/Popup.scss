@@ -1,0 +1,123 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100lvh;
+    background: rgba(138, 138, 138, 0.666);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .popup-inner {
+        position: relative;
+        border-radius: 10px;
+        padding: 32px;
+        margin: 10px;
+        width: 100%;
+        max-width: 660px;
+        background: var(--secondary);
+        // background: linear-gradient(-135deg, #4158d0,#c850c0);
+
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+
+            &:hover {
+                color: rgb(221, 2, 2);
+
+            }
+
+            .icon {
+                font-size: 28px;
+                cursor: pointer;
+
+            }
+        }
+
+        .search-popup {
+            display: flex;
+            flex-direction: column;
+
+            .details {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h1 {
+                    font-size: 8rem;
+                }
+            }
+
+            p {
+                font-size: 22px;
+                font-weight: 500;
+                margin-bottom: 20px;
+            }
+
+            .row {
+                display: flex;
+                // flex-wrap: wrap;
+                justify-content: space-between;
+
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px;
+                    text-align: center;
+
+                    span {
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .popup {
+        .popup-inner {
+            max-width: 620px;
+
+            .search-popup {
+                .details {
+                    justify-content: center;
+
+                    h1 {
+                        font-size: 4.6rem;
+                    }
+
+                    img {
+                        width: 160px;
+                        height: 160px;
+                    }
+                }
+
+                p {
+                    font-size: 18px;
+                }
+                .row{
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 20px;
+
+                    .card{
+                        span{
+                            h3{
+                                font-size: 2rem;
+                            }
+                        }
+                        h1{
+                            font-size: 2.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

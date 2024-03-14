@@ -19,7 +19,7 @@ const Hero = ({ weather, forecast }) => {
   const description=weatherDesc(weather)
 
   const list = forecast?.weatherData?.list;
-  const firstSix = list?.slice(0, 6);
+  const reqForcast = list?.slice(0, 15);
 
   // Function to extract the first reading of weather from each day
   function getFirstWeatherReadingPerDay(list) {
@@ -62,7 +62,7 @@ const Hero = ({ weather, forecast }) => {
         <div className="middle">
           <h4>TODAY'S FORECAST</h4>
           <div className="container">
-            {firstSix?.map((day, index) => (
+            {reqForcast?.map((day, index) => (
               <Today key={index} day={day}/>
             ))}
           </div>

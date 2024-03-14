@@ -96,6 +96,20 @@
     transition: var(--tran-05);
     padding: 10px;
 
+    .backbtn{
+        background: var(--primary);
+        position: fixed;
+        top: 120px;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        display: none;
+
+        .icon{
+            font-size: 20px;
+        }
+    }
+
     .Navbar {
         // background: var(--secondary);
         height: 70px;
@@ -133,10 +147,12 @@
         }
 
         .right {
-            .likes{
-                display: none;
-            }
+
+            // .likes{
+            //     display: none;
+            // }
             span {
+                cursor: pointer;
                 display: flex;
                 background: var(--secondary);
                 padding: 15px;
@@ -155,6 +171,10 @@
     .LBody {
         left: 0;
         width: 100%;
+
+        .backbtn{
+            display: inherit;
+        }
         .Navbar {
             padding: 0px 10px;
 
@@ -166,7 +186,7 @@
             .right{
                 display: flex;
                 .likes{
-                    display: inherit;
+                    display: none;
                 }
                 span{
                     margin-right: 10px;
