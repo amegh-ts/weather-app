@@ -32,7 +32,9 @@ export const signInData = async (loginData, dispatch) => {
 // view profile
 export const viewProfile = async () => {
     try {
-        const res = await userRequest.get(`/Viewprofile/${userId}`)
+        const res = await userRequest.get(`/viewprofile/${userId}`)
+    console.log('heheheheh');
+
         console.log('Response Status:', res.status);
         return res.data
     } catch (error) {

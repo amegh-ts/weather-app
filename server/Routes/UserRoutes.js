@@ -7,6 +7,6 @@ router.post('/signup',signUp)
 //signin
 router.post('/signin', signIn)
 // view profile
-router.get('/Viewprofile/:id', verifyToken, verifyTokenAndAuthorization, viewProfile)
+router.get('/viewprofile/:id', verifyToken, verifyTokenAndAuthorization, viewProfile)
 
 module.exports = router

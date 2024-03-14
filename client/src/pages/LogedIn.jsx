@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './LogedIn.scss'
-import { IoHeart, IoSearch, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
+import { IoHome, IoSearch, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
 import Hero from './Hero';
 import Profile from './Profile';
 import Popup from '../assets/popups/Popup';
 import { searchWeatherData } from '../ApiCalls';
 import { airHumidity, airPressure, feelsLike, temperature, weatherIcon, windSpeed } from '../data/WeatherUtils';
-import { FaDroplet, FaGauge, FaWind, FaTemperatureArrowUp, FaTemperatureArrowDown } from "react-icons/fa6";
+import { FaDroplet, FaGauge, FaWind } from "react-icons/fa6";
 
 const LogedIn = ({ weather, forecast }) => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -80,6 +80,13 @@ const LogedIn = ({ weather, forecast }) => {
             </div>
 
             <div className='LBody'>
+                {activePage !== 'hero' && (
+                    <div >
+                        <button className={`backbtn ${activePage === 'hero' ? 'active' : ''}`} onClick={() => { setActivePage('hero'); }}>
+                            <IoHome className="icon" />
+                        </button>
+                    </div>
+                )}
                 <div className="Navbar">
                     <div className="left">
                         <div className="title">
@@ -100,7 +107,7 @@ const LogedIn = ({ weather, forecast }) => {
                                 </div>
                                 <p>Feels like {feels}°</p>
                                 <div className="row">
-                                <div className="card">
+                                    <div className="card">
                                         <span>
                                             <FaDroplet className='icon' />
                                             <h3>Humidity</h3>

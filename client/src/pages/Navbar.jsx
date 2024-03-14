@@ -5,21 +5,6 @@ import Hero from './Hero';
 import { Link } from 'react-router-dom'
 
 const Navbar = ({ weather, forecast }) => {
-    // console.log('nav',weather);
-
-    const [activePage, setActivePage] = useState(() => {
-        // Retrieve the active page from sessionStorage on component mount
-        return sessionStorage.getItem('activePage') || 'hero';
-    });
-
-    useEffect(() => {
-        sessionStorage.setItem('activePage', activePage);
-    }, [activePage]);
-
-
-    const pageComponents = {
-        hero: <Hero weather={weather} forecast={forecast} />,
-    };
 
     return (
         <>
@@ -41,7 +26,7 @@ const Navbar = ({ weather, forecast }) => {
                 </div>
 
                 <div className={'main-body'}>
-                    {pageComponents[activePage]}
+                    <Hero weather={weather} forecast={forecast}/>
                 </div>
             </div>
         </>

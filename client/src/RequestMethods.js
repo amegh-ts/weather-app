@@ -2,7 +2,7 @@ import axios from "axios"
 
 const BASE_URL = "http://localhost:5000/";
 
-const storedData = localStorage.getItem('persist:jobio');
+const storedData = localStorage.getItem('persist:weatherapp');
 const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
 
 const Token = user?.userInfo?.[0]?.accessToken;
