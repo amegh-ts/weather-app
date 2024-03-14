@@ -36,13 +36,41 @@
 
             }
         }
+
+        .search-popup {
+            display: flex;
+            flex-direction: column;
+
+            .details {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                h1 {
+                    font-size: 8rem;
+                }
+            }
+        }
     }
 }
 
 @media (max-width: 768px) {
-.popup{
-    .popup-inner{
-        max-width: 620px;
+    .popup {
+        .popup-inner {
+            max-width: 620px;
+
+            .search-popup {
+                .details {
+                    h1 {
+                        font-size: 4.6rem;
+                    }
+
+                    img{
+                        width: 160px;
+                        height: 160px;
+                    }
+                }
+            }
+        }
     }
-}
 }

@@ -5,11 +5,14 @@ import Hero from './Hero';
 import Profile from './Profile';
 import Popup from '../assets/popups/Popup';
 import { searchWeatherData } from '../ApiCalls';
+import { temperature, weatherIcon } from '../data/WeatherUtils';
 
 const LogedIn = ({ weather, forecast }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [popup, setPopup] = useState(false)
+    const icon = weatherIcon(searchResults);
+    const temp = temperature(searchResults);
 
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
@@ -21,14 +24,16 @@ const LogedIn = ({ weather, forecast }) => {
     }, [activePage]);
 
     const handleSearch = () => {
-        // setPopup(true);
+        setPopup(true);
         if (searchQuery.trim() !== '') {
             const lowerCaseQuery = searchQuery.toLowerCase();
             console.log(lowerCaseQuery);
-            searchWeatherData(lowerCaseQuery)
+            searchWeatherData({ lowerCaseQuery }).then(weatherData => {
+                setSearchResults(weatherData);
+            });
         }
     };
-
+    console.log(searchResults);
     const pageComponents = {
         hero: <Hero weather={weather} forecast={forecast} />,
         profile: <Profile />
@@ -83,8 +88,13 @@ const LogedIn = ({ weather, forecast }) => {
                         </div>
                         <Popup trigger={popup} setTrigger={setPopup}>
                             <div className="search-popup">
-                                <h1>sdfghgftydkhgfjkf</h1>
+                                <h2>Weather details for {searchQuery}</h2>
+                                <div className="details">
+                                    <h1>{temp}°</h1>
+                                    <img src={`https://openweathermap.org/img/wn/${icon}@4x.png`} alt="Weather Icon" />
+                                </div>
                             </div>
+
                         </Popup>
                     </div>
                     <div className="right">

@@ -33,19 +33,19 @@ const getForecast = async (req, res) => {
 
 const getSearchWeather = async (req, res) => {
     console.log(req.body);
-    const searchQuery = req.body;
-    console.log(searchQuery);
-    // try {
-    //     const apiKey = process.env.OPEN_WEATHER_API_KEY;
-    //     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-    //     // console.log(apiUrl);
-    //     const response = await axios.get(apiUrl);
-    //     // console.log(response.data);
-    //     res.json({ weatherData: response.data });
-    // } catch (error) {
-    //     console.log(error.message);
-    //     res.status(500).json(error.message)
-    // }
+    const {lowerCaseQuery} = req.body;
+    console.log(lowerCaseQuery);
+    try {
+        const apiKey = process.env.OPEN_WEATHER_API_KEY;
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${lowerCaseQuery}&appid=${apiKey}&units=metric`;
+        console.log(apiUrl);
+        const response = await axios.get(apiUrl);
+        console.log(response.data);
+        res.json({ weatherData: response.data });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json(error.message)
+    }
 }
 
 module.exports = { getWeather,getForecast,getSearchWeather }
