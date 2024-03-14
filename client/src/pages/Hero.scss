@@ -41,14 +41,20 @@
 
         .middle {
             .container {
-                gap: 20px;
                 justify-content: space-evenly;
+                overflow-x: scroll;
+                max-width: 1000px;
 
+                &::-webkit-scrollbar{
+                    display: none;
+                }
                 .column {
                     display: flex;
                     flex-direction: column;
                     padding: 10px;
+                    justify-content: center;
                     align-items: center;
+                    min-width: 120px;
 
                     span {
                         display: flex;
@@ -153,7 +159,10 @@
                 width: 280px;
 
                 .container {
-                    flex-direction: column;
+                max-width: 280px;
+.column{
+    padding: 10px 1px;
+}
                 }
             }
 
