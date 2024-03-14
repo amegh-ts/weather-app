@@ -4,11 +4,12 @@ import { IoHeart, IoSearch, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoS
 import Hero from './Hero';
 import Profile from './Profile';
 import Popup from '../assets/popups/Popup';
+import { searchWeatherData } from '../ApiCalls';
 
 const LogedIn = ({ weather, forecast }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [popup,setPopup]=useState(false)
+    const [popup, setPopup] = useState(false)
 
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
@@ -20,10 +21,11 @@ const LogedIn = ({ weather, forecast }) => {
     }, [activePage]);
 
     const handleSearch = () => {
-        setPopup(true);
+        // setPopup(true);
         if (searchQuery.trim() !== '') {
             const lowerCaseQuery = searchQuery.toLowerCase();
-           console.log(lowerCaseQuery);
+            console.log(lowerCaseQuery);
+            searchWeatherData(lowerCaseQuery)
         }
     };
 
@@ -72,7 +74,7 @@ const LogedIn = ({ weather, forecast }) => {
                     <div className="left">
                         <div className="title">
                             {/* <h1>Weather App</h1> */}
-                            <IoSearch className="icon" onClick={handleSearch}/>
+                            <IoSearch className="icon" onClick={handleSearch} />
                             <input type="text" placeholder="Search Cities or Places..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onKeyPress={(e) => {
                                 if (e.key === 'Enter') {
                                     handleSearch();

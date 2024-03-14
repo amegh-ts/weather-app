@@ -1,5 +1,5 @@
 import { loginUser } from "./Redux/UserRedux";
-import { publicRequest } from "./RequestMethods";
+import { publicRequest, userRequest } from "./RequestMethods";
 
 const storedData = localStorage.getItem('persist:weatherapp');
 const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
@@ -53,7 +53,7 @@ export const weatherData = async (data) => {
 }
 
 
-// forecat data
+// forecast data
 export const forecastData = async (data) => {
     try {
         const res = await publicRequest.post('/forecast', data)
@@ -67,12 +67,13 @@ export const forecastData = async (data) => {
 
 // search weather
 export const searchWeatherData = async (data) => {
-    try {
-        const res = await publicRequest.post('/searchweather', data)
-        console.log('Response Status:', res.status);
-        return res.data;
-    } catch (error) {
-        console.log(error);
-        //    console.log(error.response.data);
-    }
+    console.log('api data',data);
+    // try {
+    //     const res = await userRequest.post('/searchweather', data)
+    //     console.log('Response Status:', res.status);
+    //     return res.data;
+    // } catch (error) {
+    //     console.log(error);
+    //     //    console.log(error.response.data);
+    // }
 }
