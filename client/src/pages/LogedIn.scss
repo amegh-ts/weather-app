@@ -133,10 +133,12 @@
         }
 
         .right {
-            .likes{
-                display: none;
-            }
+
+            // .likes{
+            //     display: none;
+            // }
             span {
+                cursor: pointer;
                 display: flex;
                 background: var(--secondary);
                 padding: 15px;
@@ -166,7 +168,7 @@
             .right{
                 display: flex;
                 .likes{
-                    display: inherit;
+                    display: none;
                 }
                 span{
                     margin-right: 10px;

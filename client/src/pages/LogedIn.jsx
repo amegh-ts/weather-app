@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react'
 import './LogedIn.scss'
 import { IoHeart, IoSearch, IoLogOut, IoPartlySunny, IoEarth, IoPersonSharp, IoSettings } from "react-icons/io5";
 import Hero from './Hero';
+import Profile from './Profile';
+import Popup from '../assets/popups/Popup';
 
 const LogedIn = ({ weather, forecast }) => {
-    // console.log('nav',weather);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const [popup,setPopup]=useState(false)
 
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
@@ -15,9 +19,17 @@ const LogedIn = ({ weather, forecast }) => {
         sessionStorage.setItem('activePage', activePage);
     }, [activePage]);
 
+    const handleSearch = () => {
+        setPopup(true);
+        if (searchQuery.trim() !== '') {
+            const lowerCaseQuery = searchQuery.toLowerCase();
+           console.log(lowerCaseQuery);
+        }
+    };
 
     const pageComponents = {
         hero: <Hero weather={weather} forecast={forecast} />,
+        profile: <Profile />
     };
 
     return (
@@ -60,15 +72,24 @@ const LogedIn = ({ weather, forecast }) => {
                     <div className="left">
                         <div className="title">
                             {/* <h1>Weather App</h1> */}
-                            <IoSearch className="icon" />
-                            <input type="text" placeholder="Search Cities or Places..." />
+                            <IoSearch className="icon" onClick={handleSearch}/>
+                            <input type="text" placeholder="Search Cities or Places..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onKeyPress={(e) => {
+                                if (e.key === 'Enter') {
+                                    handleSearch();
+                                }
+                            }} />
                         </div>
+                        <Popup trigger={popup} setTrigger={setPopup}>
+                            <div className="search-popup">
+                                <h1>sdfghgftydkhgfjkf</h1>
+                            </div>
+                        </Popup>
                     </div>
                     <div className="right">
-                        <span className='likes'>
+                        {/* <span className='likes'>
                             <IoHeart className="icon" />
-                        </span>
-                        <span >
+                        </span> */}
+                        <span className={`profile-icon ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile') }}>
                             <IoPersonSharp className="icon" />
                         </span>
                     </div>

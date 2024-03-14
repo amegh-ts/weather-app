@@ -1,6 +1,10 @@
 import { loginUser } from "./Redux/UserRedux";
 import { publicRequest } from "./RequestMethods";
 
+const storedData = localStorage.getItem('persist:weatherapp');
+const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
+const userId = user?.userInfo?.[0]?.id;
+
 // signup
 export const signUpData = async (data) => {
     console.log(data);
@@ -20,6 +24,17 @@ export const signInData = async (loginData, dispatch) => {
         const { _id: id, accessToken, type, state } = res.data;
         const userData = { id, accessToken, type, state };
         dispatch(loginUser(userData))
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// view profile
+export const viewProfile = async () => {
+    try {
+        const res = await userRequest.get(`/Viewprofile/${userId}`)
+        console.log('Response Status:', res.status);
+        return res.data
     } catch (error) {
         console.log(error);
     }
