@@ -5,7 +5,8 @@ import Hero from './Hero';
 import Profile from './Profile';
 import Popup from '../assets/popups/Popup';
 import { searchWeatherData } from '../ApiCalls';
-import { temperature, weatherIcon } from '../data/WeatherUtils';
+import { airHumidity, airPressure, feelsLike, temperature, weatherIcon, windSpeed } from '../data/WeatherUtils';
+import { FaDroplet, FaGauge, FaWind, FaTemperatureArrowUp, FaTemperatureArrowDown } from "react-icons/fa6";
 
 const LogedIn = ({ weather, forecast }) => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -13,6 +14,10 @@ const LogedIn = ({ weather, forecast }) => {
     const [popup, setPopup] = useState(false)
     const icon = weatherIcon(searchResults);
     const temp = temperature(searchResults);
+    const feels = feelsLike(searchResults);
+    const humidity = airHumidity(searchResults)
+    const pressure = airPressure(searchResults)
+    const wind = windSpeed(searchResults)
 
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
@@ -90,8 +95,32 @@ const LogedIn = ({ weather, forecast }) => {
                             <div className="search-popup">
                                 <h2>Weather details for {searchQuery}</h2>
                                 <div className="details">
-                                    <h1>{temp}°</h1>
+                                    <h1>{temp}°C</h1>
                                     <img src={`https://openweathermap.org/img/wn/${icon}@4x.png`} alt="Weather Icon" />
+                                </div>
+                                <p>Feels like {feels}°</p>
+                                <div className="row">
+                                <div className="card">
+                                        <span>
+                                            <FaDroplet className='icon' />
+                                            <h3>Humidity</h3>
+                                        </span>
+                                        <h1>{humidity}%</h1>
+                                    </div>
+                                    <div className="card">
+                                        <span>
+                                            <FaGauge className='icon' />
+                                            <h3>Pressure</h3>
+                                        </span>
+                                        <h1>{pressure} hPa</h1>
+                                    </div>
+                                    <div className="card">
+                                        <span>
+                                            <FaWind className='icon' />
+                                            <h3>Wind Speed</h3>
+                                        </span>
+                                        <h1>{wind} m/s</h1>
+                                    </div>
                                 </div>
                             </div>
 

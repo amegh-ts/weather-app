@@ -44,10 +44,35 @@
             .details {
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-between;
 
                 h1 {
                     font-size: 8rem;
+                }
+            }
+
+            p {
+                font-size: 22px;
+                font-weight: 500;
+                margin-bottom: 20px;
+            }
+
+            .row {
+                display: flex;
+                // flex-wrap: wrap;
+                justify-content: space-between;
+
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px;
+                    text-align: center;
+
+                    span {
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+                    }
                 }
             }
         }
@@ -61,13 +86,35 @@
 
             .search-popup {
                 .details {
+                    justify-content: center;
+
                     h1 {
                         font-size: 4.6rem;
                     }
 
-                    img{
+                    img {
                         width: 160px;
                         height: 160px;
+                    }
+                }
+
+                p {
+                    font-size: 18px;
+                }
+                .row{
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 20px;
+
+                    .card{
+                        span{
+                            h3{
+                                font-size: 2rem;
+                            }
+                        }
+                        h1{
+                            font-size: 2.5rem;
+                        }
                     }
                 }
             }
