@@ -86,8 +86,10 @@ This is a weather app providing weather details based on location and search.
 ## Technologies Used
 
 - **Frontend:** React, Vite
-- **Backend:** Node.js, Express
+- **Backend:** Node.js
 - **Authentication:** JSON Web Tokens (JWT)
+- **Encryption:** Crypto.js
+- **Database:** MongoDB
 
 ## Contributing
 
