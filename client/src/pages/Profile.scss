@@ -6,7 +6,22 @@
     align-items: center;
 
     .container{
-        min-width: 500px;
+        min-width: 300px;
+        min-height: 400px;
+        background: var(--secondary);
+        padding: 10px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        
+        .user{
+            img{
+                width: 100px;
+            }
+        }
     }
 }
 
