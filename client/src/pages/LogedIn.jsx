@@ -32,13 +32,12 @@ const LogedIn = ({ weather, forecast }) => {
         setPopup(true);
         if (searchQuery.trim() !== '') {
             const lowerCaseQuery = searchQuery.toLowerCase();
-            console.log(lowerCaseQuery);
             searchWeatherData({ lowerCaseQuery }).then(weatherData => {
                 setSearchResults(weatherData);
             });
         }
     };
-    console.log(searchResults);
+    
     const pageComponents = {
         hero: <Hero weather={weather} forecast={forecast} />,
         profile: <Profile />
