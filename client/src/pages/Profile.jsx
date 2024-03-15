@@ -10,7 +10,6 @@ const Profile = () => {
       try {
         const apiData = await viewProfile();
         setData(apiData)
-        console.log('api data', apiData);
       } catch (error) {
         console.log(error);
       }
@@ -20,8 +19,11 @@ const Profile = () => {
   return (
     <div className='Profile'>
       <div className="container">
-        <h1>Username : {data.username}</h1>
-        <h1>Email : {data.email}</h1>
+        <span className='user'>
+          <img src="user.png" alt="" />
+        </span>
+        <h1>{data?.username}</h1>
+        <h1>{data?.email}</h1>
       </div>
     </div>
   )

@@ -7,6 +7,8 @@ import Popup from '../assets/popups/Popup';
 import { searchWeatherData } from '../ApiCalls';
 import { airHumidity, airPressure, feelsLike, temperature, weatherIcon, windSpeed } from '../data/WeatherUtils';
 import { FaDroplet, FaGauge, FaWind } from "react-icons/fa6";
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../Redux/UserRedux';
 
 const LogedIn = ({ weather, forecast }) => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -18,6 +20,8 @@ const LogedIn = ({ weather, forecast }) => {
     const humidity = airHumidity(searchResults)
     const pressure = airPressure(searchResults)
     const wind = windSpeed(searchResults)
+
+    const dispatch = useDispatch()
 
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
@@ -32,13 +36,18 @@ const LogedIn = ({ weather, forecast }) => {
         setPopup(true);
         if (searchQuery.trim() !== '') {
             const lowerCaseQuery = searchQuery.toLowerCase();
-            console.log(lowerCaseQuery);
             searchWeatherData({ lowerCaseQuery }).then(weatherData => {
                 setSearchResults(weatherData);
             });
         }
     };
-    console.log(searchResults);
+
+    const handleLogout = () => {
+        dispatch(logoutUser())
+        sessionStorage.clear();
+        window.location.reload()
+    };
+
     const pageComponents = {
         hero: <Hero weather={weather} forecast={forecast} />,
         profile: <Profile />
@@ -71,7 +80,7 @@ const LogedIn = ({ weather, forecast }) => {
                     </div>
 
                     <div className="bottom">
-                        <span className='menu'>
+                        <span className='menu' onClick={handleLogout}>
                             <IoLogOut className="icon" />
                         </span>
                     </div>

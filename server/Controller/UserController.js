@@ -5,17 +5,16 @@ const Jwt = require('jsonwebtoken');
 // signup
 const signUp=async (req, res) => {
     req.body.password = Crypto.AES.encrypt(req.body.password, process.env.Crypto_js).toString()
-    console.log("req.body", req.body);
+    // console.log("req.body", req.body);
     try {
         const existingUser = await userController.findOne({ email: req.body.email });
         if (existingUser) {
             return res.status(400).json({ error: 'Email already exists' });
         }
-
         const newUser = new userController(req.body);
         const savedUser = await newUser.save();
-        console.log("final answer", savedUser);
-        console.log('200 Successful');
+        // console.log("final answer", savedUser);
+        // console.log('200 Successful');
         res.status(200).json(savedUser);
     } catch (error) {
         console.error(error);
@@ -38,7 +37,7 @@ const signIn = async (req, res) => {
 
         const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '1d' });
         const { password, ...others } = updatedata._doc;
-        console.log('200 Successful');
+        // console.log('200 Successful');
         res.status(200).json({ ...others, accessToken });
     } catch (error) {
         res.status(500).json(error);
@@ -49,7 +48,7 @@ const signIn = async (req, res) => {
 const viewProfile = async (req, res) => {
     try {
         const id = await userController.findById(req.params.id)
-        console.log('id=', id);
+        // console.log('id=', id);
         const hashedPassword = Crypto.AES.decrypt(id.password, process.env.Crypto_js)
         const originalPassword = hashedPassword.toString(Crypto.enc.Utf8)
         const { password, ...others } = id._doc

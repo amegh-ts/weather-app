@@ -12,6 +12,7 @@ const Navbar = ({ weather, forecast }) => {
                 <div className="Navbar">
                     <div className="left">
                         <div className="title">
+                            <img src="logo.png" width={60} height={60} alt="" />
                             <h1>Weather App</h1>
                         </div>
                     </div>

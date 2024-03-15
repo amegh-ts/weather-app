@@ -46,9 +46,10 @@
                 max-width: 1000px;
                 cursor: pointer;
 
-                &::-webkit-scrollbar{
+                &::-webkit-scrollbar {
                     display: none;
                 }
+
                 .column {
                     display: flex;
                     flex-direction: column;
@@ -150,20 +151,21 @@
 @media (max-width: 768px) {
     .Hero {
         flex-direction: column;
-        
+
         .left {
             .middle {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
+                // align-items: center; 
                 width: 280px;
 
                 .container {
-                max-width: 280px;
-.column{
-    padding: 10px 1px;
-}
+                    max-width: 280px;
+
+                    .column {
+                        padding: 10px 1px;
+                    }
                 }
             }
 
@@ -198,7 +200,7 @@
             }
         }
 
-        .right{
+        .right {
             width: 260px;
         }
     }
