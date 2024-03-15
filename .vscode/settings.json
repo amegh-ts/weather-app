@@ -4,6 +4,7 @@
         "fetchweather",
         "Forcast",
         "logedin",
+        "persistor",
         "reduxdata",
         "rfid",
         "searchweather",
