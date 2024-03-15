@@ -10,7 +10,6 @@ const Profile = () => {
       try {
         const apiData = await viewProfile();
         setData(apiData)
-        console.log('api data', apiData);
       } catch (error) {
         console.log(error);
       }
