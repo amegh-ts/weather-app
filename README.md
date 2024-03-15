@@ -20,7 +20,7 @@ This is a weather app providing weather details based on location and search.
 2. Navigate to the frontend directory:
 
     ```bash
-    cd frontend
+    cd client
     ```
 
 3. Install dependencies:
@@ -35,14 +35,14 @@ This is a weather app providing weather details based on location and search.
     npm run dev
     ```
 
-5. Access the application at `http://localhost:3000`.
+5. Access the application at `http://localhost:5173`.
 
 ### Backend (Express)
 
 1. Navigate to the backend directory:
 
     ```bash
-    cd backend
+    cd server
     ```
 
 2. Install dependencies:
@@ -57,7 +57,7 @@ This is a weather app providing weather details based on location and search.
     npm start
     ```
 
-4. The backend server will be running on `http://localhost:8000` by default.
+4. The backend server will be running on `http://localhost:5000`.
 
 ## Usage
 
