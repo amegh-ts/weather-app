@@ -14,7 +14,7 @@ This is a weather app providing weather details based on location and search.
 1. Clone the repository:
 
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/amegh-ts/weather-app.git
     ```
 
 2. Navigate to the frontend directory:
