@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const BASE_URL = "https://weather-app-server-jwpt.onrender.com/";
+const BASE_URL = "http://localhost:5000/";
 
 const storedData = localStorage.getItem('persist:weatherapp');
 const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
