@@ -4,8 +4,13 @@ This is a weather app providing weather details based on location and search.
 
 ## Features
 
-- **Location-Based Weather:** Display weather information based on the user's current location.
-- **Search Weather:** Display weather information for a specific location through search.
+| Feature                                  | Implemented |
+|------------------------------------------|-------------|
+| Location-Based Weather                   |      ✔      |
+| Search Weather (Authenticated Users Only)|      ✔      |
+| User Account Creation                    |      ❌      |
+| User Authentication                      |      ❌      |
+
 
 ## Installation
 
@@ -65,16 +70,18 @@ This is a weather app providing weather details based on location and search.
 
 - The frontend application provides two main functionalities:
   1. **Location-Based Weather:** Upon accessing the app, it automatically fetches and displays weather information based on the user's current location.
-  2. **Search Weather:** Users can search for weather information by entering a location in the search bar.
+  2. **Search Weather (Authenticated Users Only):** Users can search for weather information by entering a location in the search bar after logging in.
 
 ### Backend
 
 - The backend server facilitates fetching weather data from external APIs and serving it to the frontend upon request.
+- Additionally, it handles user authentication for accessing the search functionality.
 
 ## Technologies Used
 
 - **Frontend:** React, Vite
 - **Backend:** Node.js, Express
+- **Authentication:** JSON Web Tokens (JWT)
 
 ## Contributing
 
