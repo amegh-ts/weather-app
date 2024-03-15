@@ -1,8 +1,11 @@
 {
     "cSpell.words": [
+        "backbtn",
         "fetchweather",
         "Forcast",
         "logedin",
+        "reduxdata",
+        "rfid",
         "searchweather",
         "updatedata"
     ]
