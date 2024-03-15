@@ -41,6 +41,7 @@ This is a weather app providing weather details based on location and search.
     ```
 
 4. Start the development server:
+please verify the ENV file before running
 
     ```bash
     npm run dev
