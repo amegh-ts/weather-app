@@ -7,9 +7,11 @@ This is a weather app providing weather details based on location and search.
 | Feature                                  | Implemented |
 |------------------------------------------|-------------|
 | Location-Based Weather                   |      ✔      |
+| User Account Creation                    |      ✔      |
+| User Login                      |      ✔      |
 | Search Weather (Authenticated Users Only)|      ✔      |
-| User Account Creation                    |      ❌      |
-| User Authentication                      |      ❌      |
+| User can save multiple locations                      |      ❌      |
+
 
 
 ## Installation
