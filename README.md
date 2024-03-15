@@ -11,8 +11,7 @@ This is a weather app providing weather details based on location and search.
 | User Login                      |      ✔      |
 | Search Weather (Authenticated Users Only)|      ✔      |
 | User can save multiple locations                      |      ❌      |
-
-
+| send saved locations weather as auto ntification to multiple emails                     |      ❌      |
 
 ## Installation
 
